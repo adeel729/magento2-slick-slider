@@ -1,0 +1,94 @@
+<?php
+$slider_id = $block->getSliderId();
+$slides = $block->getSlides($slider_id); 
+$objectManager =  \Magento\Framework\App\ObjectManager::getInstance(); 
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$store = $storeManager->getStore();
+$url = $store->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_WEB);
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$imagewidth = $imageheight = 250;
+foreach($slides as $slide){
+ ?>
+ <style type="text/css">
+ .center-<?php echo $slide->getData('contact_id'); ?> .slick-arrow{
+	 top:<?php echo $slide->getData('arrows_top'); ?>;
+ }
+ .center-<?php echo $slide->getData('contact_id'); ?> .product-cap{
+	 top:<?php echo $slide->getData('text_bottom'); ?>;
+ }
+  .center-<?php echo $slide->getData('contact_id'); ?> .product-cap{
+	 top:<?php echo $slide->getData('text_bottom'); ?>;
+ }
+  .center-<?php echo $slide->getData('contact_id'); ?> .slick-slide span img{
+	 width:<?php echo $slide->getData('thumbnail_width'); ?>;
+ }
+ .center-<?php echo $slide->getData('contact_id'); ?> .slick-center span img{
+	 width:<?php echo $slide->getData('center_image_width'); ?>;
+ }
+ </style>
+<script> 
+require([
+    "jquery"
+], function ($) {
+jQuery(function($){
+$(document).ready(function(e) {	
+$('.center-<?php echo $slide->getData('contact_id'); ?>').slick({
+  infinite: true,	
+  centerMode: true,
+  centerPadding: '0px',
+  slidesToShow: 5,
+});	
+$('.center-<?php echo $slide->getData('contact_id'); ?> .product-cap').html($( ".center-<?php echo $slide->getData('contact_id'); ?> span.slick-current .text-wrap" ).html());
+$($('.center-<?php echo $slide->getData('contact_id'); ?> .slick-arrow') ).click(function() {
+$('.center-<?php echo $slide->getData('contact_id'); ?> .product-cap').html($( ".center-<?php echo $slide->getData('contact_id'); ?> span.slick-current .text-wrap" ).html());	
+});
+});
+});
+});
+</script> 
+  <h2 class="slide-title"><?php echo $slide->getData('contact_name'); ?></h2>
+  <div class="homepage-slick--JAdef center-<?php echo $slide->getData('contact_id'); ?> slider">
+   <?php 
+	$products = $block->getProducts($slide);
+    $categories = $slide->getData('categories');
+	$categories = explode(',',$categories);
+	if(sizeof($categories)>1)
+    {
+    foreach($categories as $keys=>$vals)
+	{
+		
+		$object_manager = $objectManager->create('Magento\Catalog\Model\Category')->load($vals);
+	 ?>
+	 <span>
+		 <a href="<?php echo $url.$object_manager->getData('url_path'); ?>">
+		   <span>
+		   
+			 <img  alt="<?php  //echo $object_manager->getData('name'); ?>" src="<?php echo $object_manager->getImageUrl();?>" />
+			</span>
+	     </a>
+		 <span class="text-wrap"><?php echo $object_manager->getData('description'); ?></span>
+		</span>
+	 <?php 
+		}
+	}	
+	foreach($products as $key=>$val)
+	{
+		
+		$product = $objectManager->get('Magento\Catalog\Model\Product')->load($val);
+		$img   = $this->getImage($product, 'product_base_image')->getUrl();
+
+		?>
+		 <span>
+		 <a href="<?php echo $product->getProductUrl(); ?>">
+		   <span>
+			 <img title="<?php  echo $product->getName(); ?>"  alt="<?php  echo $product->getName(); ?>" src="<?php echo $img;?>" />
+			</span>
+	     </a>
+		 <span class="text-wrap"><?php  echo $product->getName(); ?></span>
+		</span>
+		<?php
+	}
+	?>
+  </div>
+ 
+<?php }?>

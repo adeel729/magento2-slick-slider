@@ -1,0 +1,229 @@
+/* Slider */
+.slick-slider
+{
+    position: relative;
+
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+	position: relative;
+    transition: right .3s;
+    display: none;
+    float: left;
+
+    height: 100%;
+    min-height: 1px;
+}
+.slick-slide a {
+    display: block;
+    text-align: center;
+    height: 100%;
+}
+.slick-slide span {
+    display: inline-block;
+    position: relative;
+    height: 100%;
+	width:100%;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+	display: inline-block;
+    position: absolute;
+	top: 54px;
+	width: 390px;
+	max-width: 390px;
+	-webkit-transform:translate(-50%);
+	transform:translate(-50%);
+	transition: all .3s;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+	
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+	 transition: right .3s;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+.slick-center img {
+    width: 600px;
+	max-width: 600px;
+    top: 0;
+	display: inline-block;
+    position: absolute;
+	-webkit-transform:translate(-50%);
+	transform:translate(-50%);
+}
+.slick-list {
+    height: 350px;
+}
+.homepage-slick--JAdef .slick-center {
+    margin: 0;
+    z-index: 1;
+}
+.arrow-left--3jw9E, .arrow-right--15S6P {
+    content: "";
+    position: absolute;
+    top: 85%;
+    width: 200px;
+    height: 84px;
+    cursor: pointer;
+    background-image: url(../images/Arrow.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 50%;
+    transition: all .3s;
+}
+.arrow-left--3jw9E {
+    -ms-transform: rotate(180deg) translate(10px);
+    -webkit-transform: rotate(180deg) translate(10px);
+    transform: rotate(180deg) translate(10px);
+}
+.arrow-right--15S6P {
+    right: 30%;
+}
+.arrow-left--3jw9E {
+    left: 30%;
+}
+.arrow-right--15S6P:hover {
+    -ms-transform: translate(10px);
+    -webkit-transform: translate(10px);
+    transform: translate(10px);
+}	
+.arrow-left--3jw9E:hover {
+    left: 29%;
+}
+ .slider-container .slide-title
+ {
+    text-align:center;
+	font-weight: bold;
+ }
+.slider-container .slick-slide  .text-wrap
+ {
+	 visibility:hidden;
+	 display:none;
+}
+
+.slider-container .product-cap 
+ {
+	left: 43%;
+    width: 250px;
+    margin: 0 auto;
+	text-align:center;
+ }	
+ .product-cap h2{font-weight:bold;font-size:18px;} 
+.slick-list .slick-slide {
+    position: relative;
+    transition: right .3s;
+ }
+.slick-list .slick-slide:not(.slick-center) {
+    right: 100px!important;;
+}
+.slick-list .slick-center+span.slick-slide, .slick-list .slick-center+span.slick-slide+span.slick-slide, .slick-list .slick-center+span.slick-slide+span.slick-slide+span.slick-slide {
+    right: -100px!important;
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .slick-next{
+    right: 20%;
+	}
+	.slick-prev:hover{
+    left: 19%;
+	}
+	.slick-prev {
+    left: 20%;
+	}
+}

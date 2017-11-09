@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+	<css src="Expertdeveloper_Slick::css/slick.css"/>
+	<css src="Expertdeveloper_Slick::css/slick-m.css" media="screen and (max-width: 768px)"/>
+	<css src="Expertdeveloper_Slick::js/slick.js"/>
+   </head>
+	<body>
+        <referenceContainer name="page.wrapper">
+		    <container name="slider.container" htmlClass="slider-container" htmlTag="div" before="main.content">
+              <block class="Expertdeveloper\Slick\Block\Index" name="slick.slider" as="slick.slider" template="Expertdeveloper_Slick::index.phtml">
+				 <arguments>
+				<argument name="slider_id" xsi:type="string">1</argument>
+				</arguments>
+				</block>
+			</container>
+        </referenceContainer>
+    </body>
+</page>

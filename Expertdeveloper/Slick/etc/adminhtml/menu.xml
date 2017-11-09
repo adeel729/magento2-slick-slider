@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+	<add id="Expertdeveloper_Slick::slider"
+             title="Slick Slider"
+             module="Expertdeveloper_Slick"
+             sortOrder="9999"
+             resource="Expertdeveloper_Slick::slick" />
+        <add id="Expertdeveloper_Slick::slick" title="Slides" module="Expertdeveloper_Slick" sortOrder="100" parent="Expertdeveloper_Slick::slider" resource="Expertdeveloper_Slick::productsgrid" action="slick/contacts"/>
+    </menu>
+</config>

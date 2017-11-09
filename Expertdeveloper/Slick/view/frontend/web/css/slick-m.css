@@ -1,0 +1,15 @@
+.slick-next{
+right: 3%;
+width:125px;
+}
+.slick-prev:hover{
+left: 2%;
+width:125px;
+}
+.slick-prev {
+left: 5%;
+width:125px;
+}
+.slider-container .product-cap {
+    width: 135px;
+}
