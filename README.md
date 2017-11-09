@@ -29,6 +29,9 @@ the (root) Magento directory:
 ▪ php -f bin/magento setup:di:compile
 ▪ php -f bin/magento setup:static-content:deploy
 
+###Demo
+for live demo you can visit http://www.magento2extension.com/demo/slick/slider
+
 ### Support
 If you need support or have any questions directly related to this extension, please contact us at
 adeel729@gmail.com
